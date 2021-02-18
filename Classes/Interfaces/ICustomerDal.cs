@@ -37,12 +37,28 @@ namespace Interfaces
 
         public void Delete()
         {
-            Console.WriteLine("Sql Silme işlemi tamamlandı");
+            Console.WriteLine("Oracle Silme işlemi tamamlandı");
         }
 
         public void Update()
         {
-            Console.WriteLine("Sql Güncelleme işlemi tamamlandı");
+            Console.WriteLine("Oracle Güncelleme işlemi tamamlandı");
+        }
+    }class MySqlCustomerDal : ICustomerDal
+    {
+        public void Add()
+        {
+            Console.WriteLine("MySql Ekleme işlemi tamamlandı");
+        }
+
+        public void Delete()
+        {
+            Console.WriteLine("MySql Silme işlemi tamamlandı");
+        }
+
+        public void Update()
+        {
+            Console.WriteLine("MySql Güncelleme işlemi tamamlandı");
         }
     }
     class CustomerManager

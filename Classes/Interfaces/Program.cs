@@ -7,12 +7,29 @@ namespace Interfaces
         static void Main(string[] args)
         {
             //InterfacesIntro();
-            CustomerManager customerManager = new CustomerManager();
-            customerManager.Add(new OracleCustomerDal());
+            //Demo();
 
+            //ICustomerDal adında bir array oluşturup sql ve oracle i içine ekledik
+            ICustomerDal[] customerDals = new ICustomerDal[3]
+            {
+                new SqlServerCustomerDal(),
+                new OracleCustomerDal(),
+                new MySqlCustomerDal()
+            };
+            //ICustomerDal adıyla oluşturduğumuz araydeki customerDals ları, ICustomerDal Add classlarına yollayıp foreach ile döndük
+            foreach (var customerDal in customerDals)
+            {
+                customerDal.Add();
+            }
 
             Console.ReadLine();
 
+        }
+
+        private static void Demo()
+        {
+            CustomerManager customerManager = new CustomerManager();
+            customerManager.Add(new OracleCustomerDal());
         }
 
 
